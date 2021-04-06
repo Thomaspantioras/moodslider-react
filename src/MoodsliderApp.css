@@ -1,0 +1,9 @@
+#suggested-movies img {
+  width:100%;
+  height:200px;
+}
+
+#moodsliderMenu{
+  border-right: 1px solid #b6b6b6;
+  padding-right: 1em;
+}
