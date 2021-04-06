@@ -34,19 +34,21 @@ class Movies extends React.Component {
   createMovie() {
     const movies = [];
     for (let i=0; i<5; i++) {
-      movies.push(<Movie key={i} id='' imgSource='' movieName='No content' />)
+      movies.push(<Movie key={i+845964} id='' imgSource='' movieName='No content' />)
     } 
 
     const suggestedMovies = this.props.suggestedMovies;
-    console.log(suggestedMovies);
+    console.log("suggestedMovies: ", suggestedMovies);
     for (let i=0; i < suggestedMovies.length && i < 5; i++) {
+      console.log("suggestedMovies[i].id: ", suggestedMovies[i]["$"].id)
       movies[i] = <Movie 
-        key={suggestedMovies[i].id} 
-        id={suggestedMovies[i].id} 
+        key={suggestedMovies[i]["$"].id} 
+        id={suggestedMovies[i]["$"].id} 
         imgSource={window.location.origin + suggestedMovies[i].imagePath} 
         movieName={suggestedMovies[i].name} 
       />
     }
+    console.log("movies: ", movies);
     return movies;
   }
 

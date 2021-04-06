@@ -14,13 +14,13 @@ class Moodslider extends React.Component {
     render() {
         return (
             <div className="d-flex my-4">
-                <span className="font-weight-bold col-2 text-center">
+                <span className="font-weight-bold col-4 col-sm-2 text-center">
                     {this.props.leftMood}
                 </span>
                 <input className="custom-range" type="range" min="-1" max="1" step="1"
                     value={this.props.value}
                     onChange={this.handleChange} />
-                <span className="font-weight-bold col-2 text-center">
+                <span className="font-weight-bold col-4 col-sm-2 text-center">
                     {this.props.rightMood}
                 </span>
             </div>
@@ -48,7 +48,7 @@ class Moodsliders extends React.Component {
 
         return (
             <div className="py-4">
-                <form id="mood_sliders" className="range-field m-auto w-75">
+                <form id="mood_sliders" className="range-field m-auto col-sm-9">
                     {this.createMoodsliders()}
                 </form>
             </div>

@@ -43,29 +43,20 @@ class MoodsliderApp extends Component {
       this.setState({
         file: e.target.result
       })
-    //  console.log(this.state.file);
-    //  console.log(e.target.result);
     }
   }
 
 
     getMovieContentAsObject() {
-       
         var parser = new xml2js.Parser();
-        // parser.parseString(this.xml)
-        //     .then(res => res);
-
         let res;
-        // parser.parseString(this.xml, function (err, result) {
         parser.parseString(this.state.file, function (err, result) {
             res = result;
         });
-        console.log(res);
         return res;
     }
 
     render() {
-
       const navBarElementData = [
         { id: "moodsliderMenu", link: "/moodslider", name: "Moodslider" },
         { id: "uploadContentMenu", link: "/upload", name: "Upload Content" }
@@ -76,7 +67,6 @@ class MoodsliderApp extends Component {
           <div>
               <AppHeader navBarData = {navBarElementData}/>
               <Route path="/moodslider" render={(props) => <MainPage moviesContent={this.getMovieContentAsObject()} />} />
-              {/* <Route path="/upload" component={UploadFile} /> */}
               <Route path="/upload" render={(props) => <UploadFile onFileChange={this.handleFileContent} />} />
           </div>
         </Router> 
