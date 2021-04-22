@@ -66,6 +66,7 @@ class MoodsliderApp extends Component {
         <Router>
           <div>
               <AppHeader navBarData = {navBarElementData}/>
+              <Route path="/" render={(props) => <MainPage moviesContent={this.getMovieContentAsObject()} />} />
               <Route path="/moodslider" render={(props) => <MainPage moviesContent={this.getMovieContentAsObject()} />} />
               <Route path="/upload" render={(props) => <UploadFile onFileChange={this.handleFileContent} />} />
           </div>
