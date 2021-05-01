@@ -11,7 +11,7 @@ import {
   Route,
   // Link,
   // Switch,
-  // Redirect
+  Redirect
 } from 'react-router-dom'
 
 
@@ -58,6 +58,7 @@ class MoodsliderApp extends Component {
 
     render() {
       const navBarElementData = [
+        // { id: "moodsliderMenu", link: "/", name: "Moodslider" },
         { id: "moodsliderMenu", link: "/moodslider", name: "Moodslider" },
         { id: "uploadContentMenu", link: "/upload", name: "Upload Content" }
       ];
@@ -66,7 +67,8 @@ class MoodsliderApp extends Component {
         <Router>
           <div>
               <AppHeader navBarData = {navBarElementData}/>
-              <Route path="/" render={(props) => <MainPage moviesContent={this.getMovieContentAsObject()} />} />
+              {/* <Route path="/" render={(props) => <MainPage moviesContent={this.getMovieContentAsObject()} />} /> */}
+              <Route exact path="/" render={() => {return <Redirect to="/moodslider" />}} />
               <Route path="/moodslider" render={(props) => <MainPage moviesContent={this.getMovieContentAsObject()} />} />
               <Route path="/upload" render={(props) => <UploadFile onFileChange={this.handleFileContent} />} />
           </div>
